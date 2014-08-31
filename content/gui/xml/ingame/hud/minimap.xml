@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<Container size="230,230" name="mainhud"> <!-- positioning happens in ingamegui#init -->
+<!-- This size only needs to be "210,230", but is larger to prevent accidental scrolling.
+In case you change the size of this Container, also adapt the ingamegui positioning value.  -->
+<!-- The actual minimap Icon is placed after everything else so that it gets focus  -->
+
+<Container name="background_and_buttons" position="-30,0" size="240,240">
+	<Icon name="minimap_overlay_image" position="31, 1"
+		image="content/gui/images/background/widgets/map_bg.png" />
+	<Label name="speed_text" position="50,90" font="default_bold" />
+
+	<ImageButton name="speedUp" position="48,63"
+		path="icons/widgets/minimap/speed_up" helptext="Increase game speed ({key})" />
+	<ImageButton name="speedDown" position="48,105"
+		path="icons/widgets/minimap/speed_down" helptext="Decrease game speed ({key})" />
+
+	<ImageButton name="rotateLeft" position="96,19"
+		path="icons/widgets/minimap/rotate_left" helptext="Rotate map counterclockwise ({key})" />
+	<ImageButton name="rotateRight" position="150,19"
+		path="icons/widgets/minimap/rotate_right" helptext="Rotate map clockwise ({key})" />
+
+	<ImageButton name="zoomIn" position="195,63"
+		path="icons/widgets/minimap/zoom_in" helptext="Zoom in" />
+	<ImageButton name="zoomOut" position="195,105"
+		path="icons/widgets/minimap/zoom_out" helptext="Zoom out" />
+</Container>
+
+<Container size="250,90"  position="11,149">
+<!-- Main buttons that are under minimap, including build menu, diplomacy etc-->
+	<!--<Icon image="content/gui/images/buttons/glass_small.png" position="2,0" size="64,64" />-->
+	<Icon position="0,0"  image="content/gui/images/buttons/glass_small.png" />
+	<Icon position="35,28"  image="content/gui/images/buttons/glass_small.png" />
+	<Icon position="77,38"  image="content/gui/images/buttons/glass_big.png" />
+	<Icon position="126,28" image="content/gui/images/buttons/glass_small.png" />
+	<Icon position="157,0"  image="content/gui/images/buttons/glass_small.png" />
+
+	<ImageButton name="destroy_tool" position="3,2"
+		path="icons/widgets/minimap/tear" helptext="Destroy ({key})" />
+	<ImageButton name="logbook" position="39,32"
+		path="icons/widgets/minimap/captainslog" helptext="Captain's log ({key})" />
+	<ImageButton name="build" position="82,42"
+		path="icons/widgets/minimap/build" helptext="Build menu ({key})" />
+	<ImageButton name="diplomacyButton" position="130,32"
+		path="icons/widgets/minimap/diplomacy" helptext="Diplomacy" />
+	<ImageButton name="gameMenuButton" position="160,0"
+		path="icons/widgets/minimap/gamemenu" helptext="Game menu ({key})" />
+</Container>
+
+<Icon name="minimap"  size="120,120"  max_size="120,120"  position="47,46" />
+</Container>

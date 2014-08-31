@@ -1,0 +1,83 @@
+# TUTORIAL:
+# First, we define general properties, which are read by standard python code.
+# Below, there's then the list of components, which are fully specified here (no extra database needed)
+# The lumberjack has a HealthComponent in order to be destructible,
+# and a ProducerComponent to produce boards out of the raw trees the lumberjack unit collects.
+# The storage component has space for both raw trees and boards.
+# Finally, actionsets define how the building looks like in different tiers.
+# Inventory overlays then are small animations added to these base images depending on currently stored things.
+id: BUILDINGS.LUMBERJACK
+name:
+  TIER.SAILORS: _ Lumberjack Tent
+  TIER.PIONEERS: _ Lumberjack Hut
+baseclass: production.ProductionBuilding
+radius: 3
+cost: 5
+cost_inactive: 0
+size_x: 2
+size_y: 2
+inhabitants: 1
+tooltip_text: _ Chops down trees and turns them into boards.
+tier: TIER.SAILORS
+buildingcosts: {RES.GOLD: 250, RES.TOOLS: 2}
+components:
+- SelectableComponent:
+    type: building
+    tabs: [LumberjackOverviewTab]
+    enemy_tabs: [EnemyBuildingOverviewTab,]
+- FieldBuilder:
+    field: BUILDINGS.TREE
+- HealthComponent: {maxhealth: 1000}
+- ProducerComponent:
+    productionlines:
+      BOARDS:
+        produces:
+        - [RES.BOARDS, 1]
+        consumes:
+        - [RES.TREES, -2]
+        time: 15
+- StorageComponent:
+      SlotsStorage:
+        slot_sizes: {RES.TREES: 10, RES.BOARDS: 10}
+- CollectingComponent:
+    collectors:
+      UNITS.LUMBERJACK_COLLECTOR: 1
+- InventoryOverlayComponent:
+    overlays:
+      as_lumberjack0:
+        idle:
+          RES.BOARDS:
+            - [0, null]
+          RES.TREES:
+            - [0, null]
+            - [1, logs_1]
+            - [3, logs_2]
+            - [5, logs_3]
+            - [7, logs_4]
+            - [9, logs_5]
+      as_lumberjack_barrack0:
+        idle:
+          RES.BOARDS:
+            - [0, null]
+            - [1, planks_01]
+            - [2, planks_02]
+            - [3, planks_03]
+            - [4, planks_04]
+            - [5, planks_05]
+            - [6, planks_06]
+            - [7, planks_07]
+            - [8, planks_08]
+            - [9, planks_10]
+            - [10, planks_12]
+          RES.TREES:
+            - [0, null]
+            - [1, logs_01]
+            - [3, logs_02]
+            - [5, logs_03]
+            - [7, logs_04]
+            - [9, logs_05]
+actionsets:
+  TIER.SAILORS:
+    as_lumberjack0:
+  TIER.PIONEERS:
+    as_lumberjack_barrack0:

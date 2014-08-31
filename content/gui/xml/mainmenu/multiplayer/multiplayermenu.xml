@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<Container name="multiplayermenu"  size="800,580"  position_technique="center:center"
+	background_image="content/gui/images/background/book.png">
+
+	<Container size="320,510"  position="75,32"  name="left_side">
+		<Label text="New game - Multiplayer"  position="70,10"  name="headline_left"
+			font="headline" />
+		<hr position="52,30" />
+		<VBox name="playerdataselectioncontainer"  position="0,60" />
+		<Icon image="content/gui/images/background/mainmenu/selected_color_border.png" position="102,103" />
+		<hr position="52,230" />
+
+		<VBox position="42,370"  max_size="290,125"  min_size="290,125">
+
+
+			<HBox>
+				<Label name="load_game_lbl" text="Load game:" />
+				<OkButton name="load"  helptext="Load a saved game" />
+			</HBox>
+
+		</VBox>
+		<CancelButton name="cancel"  helptext="Exit to main menu" position="00,460" />
+	</Container>
+
+	<VBox max_size="320,480"  min_size="320,480"  position="420,50"  name="right_side">
+
+		<HBox max_size="290,30"  min_size="290,30">
+			<Label text="Active games:"  name="headline_active_games_lbl" />
+			<Spacer />
+			<Label name="refr_gamelist_lbl"  text="Refresh list:"  position="150,50" />
+			<ImageButton name="refresh"  helptext="Refresh list of active games"
+				path="icons/widgets/minimap/rotate_right" max_size="24,24"
+				hover_image="content/gui/icons/widgets/minimap/rotate_left.png" />
+		</HBox>
+
+		<ScrollArea max_size="290,250" min_size="290,200" name="game_list_area">
+			<ListBox name="gamelist"  min_size="290,330" is_focusable="0" />
+		</ScrollArea>
+
+		<VBox name="game_info">
+			<Label name="game_map"         wrap_text="1"  max_size="300,40" />
+			<Label name="game_name"        wrap_text="1"  max_size="300,40" />
+			<Label name="game_creator"     wrap_text="1"  max_size="300,40" />
+			<Label name="game_playersnum"  wrap_text="1"  max_size="300,100" />
+			<Label name="game_isloaded"    wrap_text="1"  max_size="300,100" />
+		</VBox>
+
+		<Spacer />
+
+
+	</VBox>
+
+	<Label name="create_game_lbl" text="Create game:"  position="450, 500"/>
+	<OkButton name="create"  helptext="Create a new game"  position="540, 490"/>
+	<Label name="join_game_lbl" text="Join game:" position="590, 500"/>
+	<OkButton name="join"  helptext="Join the selected game" position="680, 490"/>
+
+</Container>
